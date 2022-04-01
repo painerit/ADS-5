@@ -20,7 +20,7 @@ int priority(char symb) {
 }
 
 std::string infx2pstfx(std::string inf) {
-  TStack <char, 100> myStack;
+  TStack <char, 100> St;
   std::string pstfx;
   for (int i = 0; i < inf.length(); ++i) {
     int prior = priority(inf[i]);
@@ -29,30 +29,30 @@ std::string infx2pstfx(std::string inf) {
         pstfx.push_back(' ');
       }
       pstfx.push_back(inf[i]);
-      } else if (prior == 0 || prior > priority(myStack.get()) || myStack.isEmpty()) {
-        myStack.push(inf[i]);
+      } else if (prior == 0 || prior > priority(St.get()) || St.isEmpty()) {
+        St.push(inf[i]);
       } else {
         if (prior == 1) {
-          while (myStack.get() != '(') {
+          while (St.get() != '(') {
             pstfx.push_back(' ');
-            pstfx.push_back(myStack.get());
-            myStack.pop();
+            pstfx.push_back(St.get());
+            St.pop();
           }
-          myStack.pop();
+          St.pop();
         } else {
-          while (priority(myStack.get()) >= prior) {
+          while (priority(St.get()) >= prior) {
             pstfx.push_back(' ');
-            pstfx.push_back(myStack.get());
-            myStack.pop();
+            pstfx.push_back(St.get());
+            St.pop();
           }
-          myStack.push(inf[i]);
+          St.push(inf[i]);
         }
       }
   }
-  while (!myStack.isEmpty()) {
+  while (!St.isEmpty()) {
     pstfx.push_back(' ');
-    pstfx.push_back(myStack.get());
-    myStack.pop();
+    pstfx.push_back(St.get());
+    St.pop();
   }
   return pstfx;
 }
