@@ -60,7 +60,6 @@ std::string infx2pstfx(std::string inf) {
 int eval(std::string pref) {
   TStack <int, 100> St2;
   std::string temp;
-  bool isnum;
     int num1 = 0, num2 = 0;
     int begin = 0, end = 0;
     for (size_t i = 0; i < pref.size(); ++i) {
@@ -73,7 +72,7 @@ int eval(std::string pref) {
         bool isNum = true;
         for (int i = 0; i < pref.size(); ++i) {
           if (pref[i] < '0' || pref[i] > '9') {
-            bool = false;
+            isNum = false;
             break;
           }
         }
@@ -95,4 +94,5 @@ int eval(std::string pref) {
         }
       }
     }
+  return St2.get();
 }
