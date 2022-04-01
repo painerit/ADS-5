@@ -61,7 +61,7 @@ int eval(std::string pref) {
   TStack <int, 100> St2;
   std::string temp;
     int num1 = 0, num2 = 0;
-    int begin = 0, end = 0;
+    size_t begin = 0, end = 0;
     for (size_t i = 0; i < pref.size(); ++i) {
       if (pref[i] == ' ' || i == pref.size()-1) {
         end = i;
@@ -70,8 +70,8 @@ int eval(std::string pref) {
         temp = pref.substr(begin, end - begin);
         begin = end + 1;
         bool isNum = true;
-        for (int i = 0; i < pref.size(); ++i) {
-          if (pref[i] < '0' || pref[i] > '9') {
+        for (int i = 0; i < temp.size(); ++i) {
+          if (temp[i] < '0' || temp[i] > '9') {
             isNum = false;
             break;
           }
