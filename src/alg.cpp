@@ -58,6 +58,41 @@ std::string infx2pstfx(std::string inf) {
 }
 
 int eval(std::string pref) {
-  // добавьте код
-  return 0;
+  TStack <int, 100> St2;
+  std::string temp;
+  bool isnum;
+    int num1 = 0, num2 = 0;
+    int begin = 0, end = 0;
+    for (size_t i = 0; i < pref.size(); ++i) {
+      if (pref[i] == ' ' || i == pref.size()-1) {
+        end = i;
+        if (i == pref.size() - 1) 
+          end++;
+        temp = pref.substr(begin, end - begin);
+        begin = end + 1;
+        bool isNum = true;
+        for (int = 0; i < pref.size(); ++i) {
+          if (pref[i] < '0' || pref[i] > '9') {
+            bool = false;
+            break;
+          }
+        }
+        if (isNum) {
+          St2.push(std::stoi(temp));
+        } else {
+          num2 = St2.get();
+          St2.pop();
+          num1 = St2.get();
+          St2.pop();
+          if (temp == "+") 
+            St2.push(num1 + num2);
+          else if (temp == "-") 
+            St2.push(num1 - num2);
+          else if (temp == "*") 
+            St2.push(num1 * num2);
+          else if (temp == "/") 
+            St2.push(num1 / num2);
+        }
+      }
+    }
 }
