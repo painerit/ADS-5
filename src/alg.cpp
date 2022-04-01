@@ -66,12 +66,12 @@ int eval(std::string pref) {
     for (size_t i = 0; i < pref.size(); ++i) {
       if (pref[i] == ' ' || i == pref.size()-1) {
         end = i;
-        if (i == pref.size() - 1) 
+        if (i == pref.size() - 1)
           end++;
         temp = pref.substr(begin, end - begin);
         begin = end + 1;
         bool isNum = true;
-        for (int = 0; i < pref.size(); ++i) {
+        for (int i = 0; i < pref.size(); ++i) {
           if (pref[i] < '0' || pref[i] > '9') {
             bool = false;
             break;
@@ -84,13 +84,13 @@ int eval(std::string pref) {
           St2.pop();
           num1 = St2.get();
           St2.pop();
-          if (temp == "+") 
+          if (temp == "+")
             St2.push(num1 + num2);
-          else if (temp == "-") 
+          else if (temp == "-")
             St2.push(num1 - num2);
-          else if (temp == "*") 
+          else if (temp == "*")
             St2.push(num1 * num2);
-          else if (temp == "/") 
+          else if (temp == "/")
             St2.push(num1 / num2);
         }
       }
